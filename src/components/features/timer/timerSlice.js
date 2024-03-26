@@ -14,27 +14,27 @@ export const timerSlice = createSlice({
       }
     },
     decreaseTime: (state) => {
-      if (state.value < 120) {
+      if (state.value == 0) {
         return;
       } else {
         state.value -= 60;
       }
     },
     setActual: (state,amount) => {
-      // console.log(amount.payload);
-      if (state.value < 120) {
+      console.log(amount);
+      if (state.value < 0) {
         return;
       } else {
         state.value = amount.payload;
       }
     },
-    // startTime: (state) => {
-    //   state.value = 1500;
-    // },
+    startTime: (state) => {
+      state.value = 1500;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { increaseTime, decreaseTime, start,setActual } = timerSlice.actions;
+export const { increaseTime, decreaseTime, start,setActual,startTime } = timerSlice.actions;
 
 export default timerSlice.reducer;
